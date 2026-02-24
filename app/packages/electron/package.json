@@ -1,0 +1,16 @@
+{
+  "name": "@gitgael/electron",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GitGael Electron backend",
+  "main": "src/main.mjs",
+  "scripts": {
+    "dev": "electron src/main.mjs"
+  },
+  "dependencies": {
+    "sql.js": "^1.11.0"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}

@@ -1,0 +1,56 @@
+name: Build Electron
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            arch: x64
+          - os: ubuntu-latest
+            arch: arm64
+          - os: windows-latest
+            arch: x64
+          - os: macos-latest
+            arch: x64
+          - os: macos-latest
+            arch: arm64
+
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: app
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build shared
+        run: npm run build:shared
+
+      - name: Build frontend
+        run: npm run build:frontend
+
+      - name: Package Electron (${{ matrix.arch }})
+        run: npm run build:electron -- --arch=${{ matrix.arch }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitgael-electron-${{ matrix.os }}-${{ matrix.arch }}
+          path: app/packages/electron/out/make/**/*

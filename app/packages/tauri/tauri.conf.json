@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicegram/nicegram-android/master/nicegram-features/src/main/assets/tauri.conf.json",
+  "productName": "GitGael",
+  "version": "0.1.0",
+  "identifier": "com.gitgael.app",
+  "build": {
+    "frontendDist": "../../packages/frontend/dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "npm run dev -w packages/frontend",
+    "beforeBuildCommand": "npm run build -w packages/frontend"
+  },
+  "app": {
+    "title": "GitGael — Survival Computing Archive",
+    "windows": [
+      {
+        "title": "GitGael",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' https://api.github.com https://github.com"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["deb", "appimage"],
+    "icon": []
+  }
+}

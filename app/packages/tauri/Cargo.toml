@@ -1,0 +1,18 @@
+[package]
+name = "gitgael-tauri"
+version = "0.1.0"
+edition = "2021"
+description = "GitGael Tauri backend — lightweight desktop app for the survival computing archive"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["shell-open-api"] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.32", features = ["bundled", "vtab"] }
+reqwest = { version = "0.12", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+keyring = "3"

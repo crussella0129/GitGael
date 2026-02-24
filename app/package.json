@@ -1,0 +1,32 @@
+{
+  "name": "gitgael",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Desktop app for the GitGael survival computing archive",
+  "workspaces": [
+    "packages/shared",
+    "packages/frontend",
+    "packages/electron"
+  ],
+  "scripts": {
+    "dev:electron": "npm run dev -w packages/electron",
+    "dev:frontend": "npm run dev -w packages/frontend",
+    "build:frontend": "npm run build -w packages/frontend",
+    "build:electron": "npm run build -w packages/electron",
+    "build:shared": "npm run build -w packages/shared",
+    "test": "npm run test -w packages/shared",
+    "test:shared": "npm run test -w packages/shared",
+    "lint": "eslint packages/*/src --ext .ts,.tsx",
+    "migrate": "tsx scripts/migrate.ts",
+    "generate-docs": "tsx scripts/generate-docs.ts",
+    "export-catalog": "tsx scripts/export-catalog.ts"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.6.0"
+  }
+}
