@@ -3,21 +3,48 @@ import { MakerSquirrel } from '@electron-forge/maker-squirrel';
 import { MakerZIP } from '@electron-forge/maker-zip';
 import { MakerDeb } from '@electron-forge/maker-deb';
 import { MakerRpm } from '@electron-forge/maker-rpm';
+import { MakerDMG } from '@electron-forge/maker-dmg';
 import { VitePlugin } from '@electron-forge/plugin-vite';
 import { AutoUnpackNativesPlugin } from '@electron-forge/plugin-auto-unpack-natives';
+import path from 'node:path';
+
+const assetsPath = path.resolve(__dirname, '../../assets');
 
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
     name: 'GitGael',
     executableName: 'gitgael',
+    icon: path.join(assetsPath, 'icon'),
+    extraResource: [
+      path.join(assetsPath, 'gitgael.desktop'),
+      path.join(assetsPath, 'icon.png'),
+    ],
   },
   rebuildConfig: {},
   makers: [
-    new MakerSquirrel({}),
+    new MakerSquirrel({
+      setupIcon: path.join(assetsPath, 'icon.ico'),
+    }),
     new MakerZIP({}, ['darwin']),
-    new MakerRpm({}),
-    new MakerDeb({}),
+    new MakerDMG({
+      icon: path.join(assetsPath, 'icon.icns'),
+      format: 'ULFO',
+    }),
+    new MakerRpm({
+      options: {
+        icon: path.join(assetsPath, 'icon.png'),
+        categories: ['Development', 'Utility'],
+      },
+    }),
+    new MakerDeb({
+      options: {
+        icon: path.join(assetsPath, 'icon.png'),
+        categories: ['Development', 'Utility'],
+        section: 'devel',
+        desktopTemplate: path.join(assetsPath, 'gitgael.desktop'),
+      },
+    }),
   ],
   plugins: [
     new AutoUnpackNativesPlugin({}),

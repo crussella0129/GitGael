@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=GitGael
+Comment=Survival Computing Archive
+Exec=gitgael %U
+Icon=gitgael
+Type=Application
+Categories=Development;Utility;
+Terminal=false
+StartupWMClass=GitGael

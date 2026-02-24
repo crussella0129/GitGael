@@ -39,8 +39,8 @@ const RE_REPO_HEADER_DASH = /^###\s+(.+?)\s*→\s*`([^`]+)`/;
 /** Matches `(fork of \`owner/repo\`)` in description */
 const RE_FORK_OF = /\(fork of\s+`([^`]+)`\)/;
 
-/** Matches `- **Field**: content` */
-const RE_FIELD = /^-\s+\*\*(\w[\w\s]*?)\*\*:\s*(.+)$/;
+/** Matches `- **Field**: content` or `- **Field**:` (empty, content on next lines) */
+const RE_FIELD = /^-\s+\*\*(\w[\w\s]*?)\*\*:\s*(.*)$/;
 
 /** Matches a markdown table row `| cell | cell | ... |` */
 const RE_TABLE_ROW = /^\|(.+)\|$/;
@@ -357,8 +357,9 @@ function parseRepoEntry(
 
   const description = descLines.join(' ');
 
-  // Check for (fork of `owner/repo`) in description
-  const forkOfMatch = description.match(RE_FORK_OF);
+  // Check for (fork of `owner/repo`) in header line or description
+  const headerLine = lines[startLine];
+  const forkOfMatch = headerLine.match(RE_FORK_OF) || description.match(RE_FORK_OF);
   const upstream_url = forkOfMatch ? forkOfMatch[1] : null;
 
   // Parse fields

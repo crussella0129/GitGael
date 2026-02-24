@@ -16,7 +16,7 @@
     "build:shared": "npm run build -w packages/shared",
     "test": "npm run test -w packages/shared",
     "test:shared": "npm run test -w packages/shared",
-    "lint": "eslint packages/*/src --ext .ts,.tsx",
+    "lint": "eslint .",
     "migrate": "tsx scripts/migrate.ts",
     "generate-docs": "tsx scripts/generate-docs.ts",
     "export-catalog": "tsx scripts/export-catalog.ts"
