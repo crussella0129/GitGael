@@ -1,6 +1,6 @@
 # GitGael — Survival Computing Archive
 
-A curated archive of **thousands of public repos** (~500 GB) containing everything needed to rebuild a complete computing stack from scratch — no internet required. Covers both **Linux** and **FreeBSD** paths, from bare metal to riced desktop. This repository serves as the master index with installation guides, usage docs, and learning resources for every fork.
+A curated archive of **thousands of public repos** (~500 GB) containing everything needed to rebuild a complete computing stack from scratch — no internet or civilization required. Covers both **Linux** and **FreeBSD** paths, from bare metal to riced desktop. This repository serves as the master index with installation guides, usage docs, and learning resources for every fork.
 
 ## How to Use This Archive
 
