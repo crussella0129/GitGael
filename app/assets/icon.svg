@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="gem" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="facetL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="facetR" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6ee7b7" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect x="16" y="16" width="480" height="480" rx="96" ry="96" fill="url(#bg)"/>
+  <!-- Diamond / crystal shape -->
+  <!-- Top crown -->
+  <polygon points="256,80 168,200 344,200" fill="url(#gem)"/>
+  <!-- Left facet -->
+  <polygon points="168,200 256,420 256,200" fill="url(#facetL)"/>
+  <!-- Right facet -->
+  <polygon points="344,200 256,420 256,200" fill="url(#facetR)"/>
+  <!-- Left outer facet -->
+  <polygon points="256,80 168,200 256,200" fill="#34d399" fill-opacity="0.15"/>
+  <!-- Bottom left -->
+  <polygon points="168,200 256,420 128,200" fill="#059669" fill-opacity="0.4"/>
+  <polygon points="128,200 168,200 256,80" fill="#6ee7b7" fill-opacity="0.2"/>
+  <!-- Bottom right -->
+  <polygon points="344,200 256,420 384,200" fill="#047857" fill-opacity="0.5"/>
+  <polygon points="384,200 344,200 256,80" fill="#10b981" fill-opacity="0.15"/>
+  <!-- Crown line -->
+  <line x1="128" y1="200" x2="384" y2="200" stroke="#6ee7b7" stroke-width="2" stroke-opacity="0.5"/>
+  <!-- Highlight -->
+  <polygon points="256,80 200,170 256,160" fill="white" fill-opacity="0.2"/>
+</svg>
