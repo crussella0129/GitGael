@@ -18,6 +18,7 @@ Hardware → Firmware (coreboot/u-boot) → Kernel (linux) → Init (systemd)
 → Build Systems (make/cmake/meson/ninja) → Core Utils (busybox/util-linux)
 → Networking (openssh/NetworkManager) → Display (wayland/xorg)
 → Desktop (Hyprland/COSMIC/sway) → Applications
+→ Drones (ArduPilot/PX4/Betaflight → MAVLink → GCS → Autonomy → Mapping)
 ```
 
 ### FreeBSD Path
@@ -53,6 +54,7 @@ Hardware → Firmware (coreboot/u-boot) → Base System (freebsd-src: kernel +
 | **18 — AI & Machine Learning** | [docs/18-ai-ml.md](docs/18-ai-ml.md) | Frameworks, models, vision, speech, translation |
 | **19 — Simulation** | [docs/19-simulation.md](docs/19-simulation.md) | FEA, CFD, physics, chemistry, nuclear, optics |
 | **20 — Morale & Entertainment** | [docs/20-morale.md](docs/20-morale.md) | Games, music, art, emulators |
+| **21 — Drones & UAVs** | [docs/21-drones.md](docs/21-drones.md) | Flight controllers, ESC, GCS, MAVLink, RC link, FPV, simulation, SLAM, mapping, swarm, Remote ID |
 
 ## Naming Collisions
 
@@ -84,6 +86,9 @@ Some forks were renamed due to GitHub name conflicts:
 | `mongo` | mongodb/mongo | MongoDB database |
 | `fiddle` | electron/fiddle | Electron playground |
 | `Paddle` | PaddlePaddle/Paddle | PaddlePaddle ML framework |
+| `BLHeli_S` | betaflight/BLHeli_S + bitdump/BLHeli | ESC firmware (same fork network) |
+| `Hardware` | pixhawk/Hardware | Pixhawk FC PCB designs (not to be confused with Voron-Hardware) |
+| `dss` | interuss/dss | InterUSS UTM service |
 
 ## Non-GitHub Mirrors
 
@@ -100,6 +105,7 @@ These critical projects live on GitLab/Savannah/Codeberg. They have been `git cl
 | **Bash** | git.savannah.gnu.org/git/bash.git | `crussella0129/bash` | Shell |
 | **GNU Binutils** | sourceware.org/git/binutils-gdb.git | `crussella0129/binutils-gdb` | Assembler + linker + GDB |
 | **hostapd/wpa_supplicant** | w1.fi/cgit/hostap | `crussella0129/hostap` | WiFi AP daemon and WPA client |
+| **ChibiOS** | chibios.org | — | RTOS used by ArduPilot (needs manual archive) |
 
 Each mirror repo contains a `MIRROR.md` with step-by-step instructions for updating from upstream. Update periodically while internet access is available.
 
@@ -153,5 +159,5 @@ A single 2 TB NVMe or external SSD comfortably holds the entire archive plus off
 
 ---
 
-*Last updated: 2026-02-24*
+*Last updated: 2026-02-27*
 *Total repos: 1000+*
